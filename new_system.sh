@@ -5,9 +5,8 @@ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo
 # - Prusa
 # - Fritzing
 
-sudo apt install -y gdebi python3-pip python3-venv htop libcanberra-gtk-module p7zip-full lm-sensors wireshark \
+sudo apt install -y gdebi python3-pip python3-venv htop libcanberra-gtk-module p7zip-full lm-sensors gimp tilix \
     ncdu ppa-purge wireguard wireguard-tools net-tools nmap gparted btrfs-progs copyq gnome-shell-extensions d-feet btrfs-compsize \
-    steam barrier copyq gimp tilix \
     apt-transport-https \
     ca-certificates \
     curl \
