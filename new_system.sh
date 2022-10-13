@@ -5,7 +5,7 @@ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo
 # - Prusa
 # - Fritzing
 
-sudo apt install -y gdebi python-is-python3 python3-pip python3-venv htop libcanberra-gtk-module p7zip-full lm-sensors wireshark \
+sudo apt install -y gdebi python3-pip python3-venv htop libcanberra-gtk-module p7zip-full lm-sensors wireshark \
     ncdu ppa-purge wireguard wireguard-tools net-tools nmap gparted btrfs-progs copyq gnome-shell-extensions d-feet btrfs-compsize \
     steam barrier copyq gimp tilix \
     apt-transport-https \
@@ -21,7 +21,7 @@ FILE=~/.ssh/id_ed25519
 if [ -f $FILE ]; then
     echo "$FILE exists."
 else
-    ssh-keygen -o -a 100 -t ed25519 -f $FILE -C "lucasperinm@gmail.com" -q -N ""
+    ssh-keygen -o -a 100 -t ed25519 -f $FILE -C "marcello@notebook" -q -N ""
 fi
 ## /#
 
@@ -32,14 +32,14 @@ fi
 # ELSE tell command exists 
 # FI
 
-COMMAND=appimagelauncherd
-if ! command -v $COMMAND &> /dev/null; then
-    sudo add-apt-repository ppa:appimagelauncher-team/stable -y
-    sudo apt update
-    sudo apt install -y appimagelauncher
-else
-    echo "$COMMAND found"
-fi
+# COMMAND=appimagelauncherd
+# if ! command -v $COMMAND &> /dev/null; then
+#     sudo add-apt-repository ppa:appimagelauncher-team/stable -y
+#     sudo apt update
+#     sudo apt install -y appimagelauncher
+# else
+#     echo "$COMMAND found"
+# fi
 # COMMAND=platformio
 # if ! command -v $COMMAND &> /dev/null; then
 #     pip install -U pip
@@ -85,22 +85,13 @@ if ! command -v $COMMAND &> /dev/null; then
     sudo apt update
     sudo apt install -y code
     declare -a StringArray=(
-        'Dart-Code.dart-code'
-        'Dart-Code.flutter'
-        'DavidAnson.vscode-markdownlint'
-        'GitHub.copilot'
         'GitHub.vscode-pull-request-github'
-        'GrapeCity.gc-excelviewer'
         'ms-azuretools.vscode-docker'
         'ms-python.python'
         'ms-python.vscode-pylance'
         'ms-toolsai.jupyter'
         'ms-vscode-remote.remote-ssh'
         'ms-vscode-remote.remote-ssh-edit'
-        'ms-vscode.cpptools'
-        'tomoki1207.pdf'
-        'WakaTime.vscode-wakatime'
-        'yzane.markdown-pdf'
     )
     for val in "${StringArray[@]}"; do
         code --install-extension $val
@@ -121,13 +112,6 @@ if ! command -v $COMMAND &> /dev/null; then
 else
     echo "$COMMAND found"
 fi
-# COMMAND=docker-compose
-# if ! command -v $COMMAND &> /dev/null; then
-#     sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-#     sudo chmod +x /usr/local/bin/docker-compose
-# else
-#     echo "$COMMAND found"
-# fi
 # COMMAND=drovio
 # if ! command -v $COMMAND &> /dev/null; then
 #     wget -O ~/drovio.deb https://repository.drovio.com/stable/drovio/linux/latest_version/drovio.deb
@@ -161,13 +145,13 @@ else
     echo "$COMMAND found"
 fi
 # run telegram-desktop afterwards
-COMMAND=telegram-desktop
-if ! command -v $COMMAND &> /dev/null; then
-    wget -O- https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
-    sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
-else
-    echo "$COMMAND found"
-fi
+# COMMAND=telegram-desktop
+# if ! command -v $COMMAND &> /dev/null; then
+#     wget -O- https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
+#     sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
+# else
+#     echo "$COMMAND found"
+# fi
 COMMAND=slack
 if ! command -v $COMMAND &> /dev/null; then
     wget -O ~/${COMMAND}.deb "https://downloads.slack-edge.com/releases/linux/4.28.182/prod/x64/slack-desktop-4.28.182-amd64.deb"
@@ -183,34 +167,34 @@ if ! command -v $COMMAND &> /dev/null; then
 else
     echo "$COMMAND found"
 fi
-COMMAND=upwork
-if ! command -v $COMMAND &> /dev/null; then
-    wget -O ~/${COMMAND}.deb https://upwork-usw2-desktopapp.upwork.com/binaries/v5_6_10_1_de501d28cc034306/upwork_5.6.10.1_amd64.deb
-    sudo gdebi -n ~/${COMMAND}.deb
-    rm ~/${COMMAND}.deb
-else
-    echo "$COMMAND found"
-fi
+# COMMAND=upwork
+# if ! command -v $COMMAND &> /dev/null; then
+#     wget -O ~/${COMMAND}.deb https://upwork-usw2-desktopapp.upwork.com/binaries/v5_6_10_1_de501d28cc034306/upwork_5.6.10.1_amd64.deb
+#     sudo gdebi -n ~/${COMMAND}.deb
+#     rm ~/${COMMAND}.deb
+# else
+#     echo "$COMMAND found"
+# fi
 COMMAND=smplayer
 if ! command -v $COMMAND &> /dev/null; then
     sudo snap install smplayer
 else
     echo "$COMMAND found"
 fi
-COMMAND=youtube-dl
-if ! command -v $COMMAND &> /dev/null; then
-    sudo -H pip install --upgrade youtube-dl
-else
-    echo "$COMMAND found"
-fi
-COMMAND=obsidian
-if ! command -v $COMMAND &> /dev/null; then
-    wget -O ~/${COMMAND}.deb https://github.com/obsidianmd/obsidian-releases/releases/download/v0.15.9/obsidian_0.15.9_amd64.deb
-    sudo gdebi -n ~/${COMMAND}.deb
-    rm ~/${COMMAND}.deb
-else
-    echo "$COMMAND found"
-fi
+# COMMAND=youtube-dl
+# if ! command -v $COMMAND &> /dev/null; then
+#     sudo -H pip install --upgrade youtube-dl
+# else
+#     echo "$COMMAND found"
+# fi
+# COMMAND=obsidian
+# if ! command -v $COMMAND &> /dev/null; then
+#     wget -O ~/${COMMAND}.deb https://github.com/obsidianmd/obsidian-releases/releases/download/v0.15.9/obsidian_0.15.9_amd64.deb
+#     sudo gdebi -n ~/${COMMAND}.deb
+#     rm ~/${COMMAND}.deb
+# else
+#     echo "$COMMAND found"
+# fi
 # COMMAND=projectlibre
 # if ! command -v $COMMAND &> /dev/null; then
 #     wget -O ~/projectlibre.deb https://megalink.dl.sourceforge.net/project/projectlibre/ProjectLibre/1.9.3/projectlibre_1.9.3-1.deb
@@ -218,13 +202,13 @@ fi
 # else
 #     echo "$COMMAND found"
 # fi
-COMMAND=qbittorrent
-if ! command -v $COMMAND &> /dev/null; then
-    sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
-    sudo apt-get update && sudo apt-get install -y qbittorrent
-else
-    echo "$COMMAND found"
-fi
+# COMMAND=qbittorrent
+# if ! command -v $COMMAND &> /dev/null; then
+#     sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
+#     sudo apt-get update && sudo apt-get install -y qbittorrent
+# else
+#     echo "$COMMAND found"
+# fi
 # COMMAND=remmina
 # if ! command -v $COMMAND &> /dev/null; then
 #     sudo apt-add-repository ppa:remmina-ppa-team/remmina-next -y
@@ -271,47 +255,47 @@ fi
 # Categories=Development
 # EOL
 # fi
-COMMAND=google-earth-pro
-if ! command -v $COMMAND &> /dev/null; then
-    wget -O ~/${COMMAND}.deb https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
-    sudo gdebi -n ~/${COMMAND}.deb
-    rm ~/${COMMAND}.deb
-else
-    echo "$COMMAND found"
-fi
-COMMAND=gsutil
-if ! command -v $COMMAND &> /dev/null; then
-    wget -O ~/gsutil.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-398.0.0-linux-x86_64.tar.gz
-    cd ~/
-    tar -xf ~/gsutil.tar.gz
-    ./google-cloud-sdk/install.sh
-    ./google-cloud-sdk/bin/gcloud init
-else
-    echo "$COMMAND found"
-fi
+# COMMAND=google-earth-pro
+# if ! command -v $COMMAND &> /dev/null; then
+#     wget -O ~/${COMMAND}.deb https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
+#     sudo gdebi -n ~/${COMMAND}.deb
+#     rm ~/${COMMAND}.deb
+# else
+#     echo "$COMMAND found"
+# fi
+# COMMAND=gsutil
+# if ! command -v $COMMAND &> /dev/null; then
+#     wget -O ~/gsutil.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-398.0.0-linux-x86_64.tar.gz
+#     cd ~/
+#     tar -xf ~/gsutil.tar.gz
+#     ./google-cloud-sdk/install.sh
+#     ./google-cloud-sdk/bin/gcloud init
+# else
+#     echo "$COMMAND found"
+# fi
 # COMMAND=waynergy
 # if ! command -v $COMMAND &> /dev/null; then
 #     sudo apt install -y libxkbcommon-dev libtls-dev wl-clipboard wayland-scanner++
 # else
 #     echo "$COMMAND found"
 # fi
-COMMAND=dbeaver-ce
-if ! command -v $COMMAND &> /dev/null; then
-    curl -fsSL https://dbeaver.io/debs/dbeaver.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/dbeaver.gpg
-    echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
-    sudo apt update
-    sudo apt install -y dbeaver-ce
-else
-    echo "$COMMAND found"
-fi
-COMMAND=franz
-if ! command -v $COMMAND &> /dev/null; then
-    wget -O ~/${COMMAND}.deb https://github.com/meetfranz/franz/releases/download/v5.9.2/franz_5.9.2_amd64.deb
-    sudo gdebi -n ~/${COMMAND}.deb
-    rm ~/${COMMAND}.deb
-else
-    echo "$COMMAND found"
-fi
+# COMMAND=dbeaver-ce
+# if ! command -v $COMMAND &> /dev/null; then
+#     curl -fsSL https://dbeaver.io/debs/dbeaver.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/dbeaver.gpg
+#     echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+#     sudo apt update
+#     sudo apt install -y dbeaver-ce
+# else
+#     echo "$COMMAND found"
+# fi
+# COMMAND=franz
+# if ! command -v $COMMAND &> /dev/null; then
+#     wget -O ~/${COMMAND}.deb https://github.com/meetfranz/franz/releases/download/v5.9.2/franz_5.9.2_amd64.deb
+#     sudo gdebi -n ~/${COMMAND}.deb
+#     rm ~/${COMMAND}.deb
+# else
+#     echo "$COMMAND found"
+# fi
 service_exists() {
     local n=$1
     if [[ $(systemctl list-units --all -t service --full --no-legend "$n.service" | sed 's/^\s*//g' | cut -f1 -d' ') == $n.service ]]; then
@@ -329,35 +313,35 @@ service_exists() {
 #     sudo apt update
 #     sudo apt install -y plexmediaserver
 # fi
-SERVICE=ums.service
-VERSION=11.4.1
-if service_exists SERVICE; then
-    echo "$SERVICE found"
-else
-    sudo apt install -y mediainfo dcraw vlc mplayer mencoder openjdk-18-jre
-    wget -O ~/${SERVICE}.tgz https://github.com/UniversalMediaServer/UniversalMediaServer/releases/download/${VERSION}/UMS-${VERSION}-x86_64.tgz
-    sudo tar -zxvf ~/${SERVICE}.tgz -C /opt/ --transform s/ums-${VERSION}/ums/
-    FILE=/etc/systemd/system/ums.service
-    if [ -f "$FILE" ]; then
-        echo "$FILE exists."
-    else
-        cat >$FILE <<EOL
-[Unit]
-Description=Run UMS as hari
-DefaultDependencies=no
-After=network.target
+# SERVICE=ums.service
+# VERSION=11.4.1
+# if service_exists SERVICE; then
+#     echo "$SERVICE found"
+# else
+#     sudo apt install -y mediainfo dcraw vlc mplayer mencoder openjdk-18-jre
+#     wget -O ~/${SERVICE}.tgz https://github.com/UniversalMediaServer/UniversalMediaServer/releases/download/${VERSION}/UMS-${VERSION}-x86_64.tgz
+#     sudo tar -zxvf ~/${SERVICE}.tgz -C /opt/ --transform s/ums-${VERSION}/ums/
+#     FILE=/etc/systemd/system/ums.service
+#     if [ -f "$FILE" ]; then
+#         echo "$FILE exists."
+#     else
+#         cat >$FILE <<EOL
+# [Unit]
+# Description=Run UMS as hari
+# DefaultDependencies=no
+# After=network.target
 
-[Service]
-Type=simple
-User=hari
-Group=hari
-ExecStart=/opt/ums/UMS.sh
-TimeoutStartSec=0
-RemainAfterExit=yes
-Environment="UMS_MAX_MEMORY=2048M"
+# [Service]
+# Type=simple
+# User=hari
+# Group=hari
+# ExecStart=/opt/ums/UMS.sh
+# TimeoutStartSec=0
+# RemainAfterExit=yes
+# Environment="UMS_MAX_MEMORY=2048M"
 
-[Install]
-WantedBy=default.target
-EOL
-    fi
-fi
+# [Install]
+# WantedBy=default.target
+# EOL
+#     fi
+# fi
